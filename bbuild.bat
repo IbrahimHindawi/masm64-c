@@ -23,7 +23,7 @@ rem %link_directory%\link.exe" %project_name%.obj resource.res /debug:full /opt:
 rem %link_directory%\link.exe" %project_name%.obj resource.res /debug:full /nologo /opt:ref /opt:noicf /largeaddressaware:no /def:..\source\%project_name%.def /entry:main /machine:x64 /map /out:%project_name%.exe /PDB:%project_name%.pdb /subsystem:windows,6.0 "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.19041.0\um\x64\kernel32.lib" "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.19041.0\um\x64\user32.lib" "C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x64\d3d11.lib"
 rem %link_directory%\link.exe" %project_name%.obj resource.res /debug:full /nologo /opt:ref /opt:noicf /largeaddressaware:no /def:..\source\%project_name%.def /entry:main /machine:x64 /map /out:%project_name%.exe /PDB:%project_name%.pdb /subsystem:windows,6.0 "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.19041.0\um\x64\kernel32.lib" "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.19041.0\um\x64\user32.lib"  "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.19041.0\um\x64\gdi32.lib"
 
-cl ..\source\entrypoint.c /Fe:%project_name% %project_name%.obj "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.19041.0\um\x64\kernel32.lib" "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.19041.0\um\x64\user32.lib"  "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.19041.0\um\x64\gdi32.lib" /link /subsystem:console
+cl ..\source\entrypoint.c /ZI /Fe:%project_name% %project_name%.obj "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.19041.0\um\x64\kernel32.lib" "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.19041.0\um\x64\user32.lib"  "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.19041.0\um\x64\gdi32.lib" /link /subsystem:console /DEBUG:FULL 
 
 type errors.txt
 
