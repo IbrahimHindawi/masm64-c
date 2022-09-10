@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "stdtype.h"
 #include "m_vec.h"
+#include "m_matrix.h"
 
 // x64 function prototypes
 // int func();
@@ -9,6 +10,8 @@
 m_vec3f32 pos;
 m_vec3f32 up;
 m_vec3f32 fd;
+
+m_matrix33 mtx;
 
 int main() {
     /*
@@ -45,8 +48,20 @@ int main() {
     len = m_vec3f32_length(npos);
     printf("normalized length: %f\n", len);
 
+    printf("matrix: \n{%f, %f, %f,\n %f, %f, %f,\n %f, %f, %f}\n", 
+            mtx[0][0], mtx[0][1], mtx[0][2], 
+            mtx[1][0], mtx[1][1], mtx[1][2], 
+            mtx[2][0], mtx[2][1], mtx[2][2]);
+    // mtx[0][0] = 1.0f;
+    m_matrix33_create(mtx, 1.0f, 0.0f, 0.0f,
+                            0.0f, 1.0f, 0.0f,
+                            0.0f, 0.0f, 1.0f);
+
+    printf("matrix: \n{%f, %f, %f,\n %f, %f, %f,\n %f, %f, %f}\n", 
+            mtx[0][0], mtx[0][1], mtx[0][2], 
+            mtx[1][0], mtx[1][1], mtx[1][2], 
+            mtx[2][0], mtx[2][1], mtx[2][2]);
+
     printf("\n\n");
     return 0;
 }
-
-
