@@ -1,43 +1,17 @@
-// #include <windows.h>
 #include <stdio.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-// c structs
-typedef union {
-    struct {
-        float x;
-        float y;
-    };
-    float c[2];
-} m_vec2f;
-
-typedef union {
-    struct {
-        float x;
-        float y;
-        float z;
-    };
-    float c[3];
-} m_vec3f;
-
-// c procs
-m_vec3f m_vec3f_add_scalar(m_vec3f v, float s) {
-    m_vec3f result = {0};
-    result.x = v.x + s;
-    result.y = v.y + s;
-    result.z = v.z + s;
-    return result;
-}
+#include "stdtype.h"
+#include "m_vec.h"
 
 // x64 function prototypes
-int func();
-void s_vec3f_add_scalar(m_vec3f *v, float s);
+// int func();
+// void s_vec3f32_add_scalar(m_vec3f32 *v, float s);
 
-m_vec3f pos;
+m_vec3f32 pos;
+m_vec3f32 up;
+m_vec3f32 fd;
 
-// int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pCmdLine, int nCmdShow) {
 int main() {
+    /*
     printf("\nC&MASM64 MATHS!\n");
 
     int num = func();   
@@ -48,8 +22,28 @@ int main() {
     printf("vector v: {%f, %f, %f}\n", pos.x, pos.y, pos.z); 
 
     float s = 3.0f;
-    s_vec3f_add_scalar(&pos, s);
+    s_vec3f32_add_scalar(&pos, s);
     printf("vector v: {%f, %f, %f}\n", pos.x, pos.y, pos.z); 
+    */
+    pos = m_vec3f32_create(12.23414f, 8.1245f, 3.1234f);
+    printf("vector v: {%f, %f, %f}\n", pos.x, pos.y, pos.z); 
+    // pos = m_vec3f32_add_scalar(pos, 3.0f);
+    pos = m_vec3f32_add_scalar(pos, 3.0f);
+    printf("vector v: {%f, %f, %f}\n", pos.x, pos.y, pos.z); 
+
+    up.y = 1.0f;
+    fd.z = 1.0f;
+    f32 dotprod = m_vec3f32_dot(up, fd);
+    printf("dot: %f\n", dotprod);
+
+    f32 len = m_vec3f32_length(pos);
+    printf("length: %f\n", len);
+
+    m_vec3f32 npos = m_vec3f32_normalize(pos);
+    printf("normalized vector pos: {%f, %f, %f}\n", npos.x, npos.y, npos.z); 
+    len = m_vec3f32_length(npos);
+    printf("normalized length: %f\n", len);
+
     return 0;
 }
 
