@@ -25,11 +25,12 @@ int main() {
     s_vec3f32_add_scalar(&pos, s);
     printf("vector v: {%f, %f, %f}\n", pos.x, pos.y, pos.z); 
     */
+    printf("\nC MATHEMATICS\n");
     pos = m_vec3f32_create(12.23414f, 8.1245f, 3.1234f);
-    printf("vector v: {%f, %f, %f}\n", pos.x, pos.y, pos.z); 
+    printf("vector pos: {%f, %f, %f}\n", pos.x, pos.y, pos.z); 
     // pos = m_vec3f32_add_scalar(pos, 3.0f);
     pos = m_vec3f32_add_scalar(pos, 3.0f);
-    printf("vector v: {%f, %f, %f}\n", pos.x, pos.y, pos.z); 
+    printf("vector pos: {%f, %f, %f}\n", pos.x, pos.y, pos.z); 
 
     up.y = 1.0f;
     fd.z = 1.0f;
@@ -44,6 +45,7 @@ int main() {
     len = m_vec3f32_length(npos);
     printf("normalized length: %f\n", len);
 
+    printf("\n\n");
     return 0;
 }
 
