@@ -33,7 +33,6 @@ func                                            endp
 
                                                 public                  s_vec3f_add_scalar
 s_vec3f_add_scalar                              proc                    ; (rcx: vec3, xmm0: s)
-                                                ; local                   result:qword
                                                 Save_Registers
 
                                                 movss                   xmm1, dword ptr [rcx.s_vec3.x]
