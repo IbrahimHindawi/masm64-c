@@ -9,6 +9,10 @@ v3f32 fd;
 
 m33 mtx;
 
+m33 A;
+m33 B;
+m33 R;
+
 int main() {
     printf("\nC MATHEMATICS\n");
 
@@ -58,6 +62,12 @@ int main() {
     printf("extracted vector:\n"); 
     v3f32_print(xv);
 
+    m33_set_f32(A, 2.0f, 0.0f, 9.0f, 0.0f, 1.0f, 4.0f, 0.0f, 8.0f, 1.0f);
+    m33_print(A);
+    m33_set_f32(B, 1.0f, 2.0f, 6.0f, 2.0f, 9.0f, 0.0f, 3.0f, 9.0f, 1.0f);
+    m33_print(B);
+    m33_mul_m33(R, A, B);
+    m33_print(R);
 
     printf("\n\n");
     return 0;
