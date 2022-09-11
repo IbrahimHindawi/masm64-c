@@ -9,7 +9,7 @@ typedef union {
         f32 y;
     };
     f32 c[2];
-} m_vec2f32;
+} v2f32;
 
 typedef union {
     struct {
@@ -18,14 +18,15 @@ typedef union {
         f32 z;
     };
     f32 c[3];
-} m_vec3f32;
+} v3f32;
 
-m_vec3f32   m_vec3f32_create(f32 x, f32 y, f32 z);
-m_vec3f32   m_vec3f32_add_scalar(m_vec3f32 v, f32 s);
-m_vec3f32   m_vec3f32_mul_scalar(m_vec3f32 v, f32 s);
-m_vec3f32   m_vec3f32_div_scalar(m_vec3f32 v, f32 s);
-f32         m_vec3f32_dot(m_vec3f32 a, m_vec3f32 b);
-f32         m_vec3f32_length(m_vec3f32 v);
-m_vec3f32   m_vec3f32_normalize(m_vec3f32 v);
+v3f32  v3f32_create(f32 x, f32 y, f32 z);
+v3f32  v3f32_add_f32(v3f32 v, f32 s);
+v3f32  v3f32_mul_f32(v3f32 v, f32 s);
+v3f32  v3f32_div_f32(v3f32 v, f32 s);
+f32    v3f32_dot(v3f32 a, v3f32 b);
+f32    v3f32_length(v3f32 v);
+v3f32  v3f32_normalize(v3f32 v);
+void   v3f32_print(v3f32 v);
 
 #endif

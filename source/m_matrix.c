@@ -1,24 +1,41 @@
 #include "m_matrix.h"
 
-void m_matrix33_create(m_matrix33 matrix,
-                        f32 m00, f32 m01, f32 m02,
-                        f32 m10, f32 m11, f32 m12,
-                        f32 m20, f32 m21, f32 m22) {
-    matrix[0][0] = m00; matrix[0][1] = m01; matrix[0][2] = m02;
-    matrix[1][0] = m10; matrix[1][1] = m11; matrix[1][2] = m12;
-    matrix[2][0] = m20; matrix[2][1] = m21; matrix[2][2] = m22;
+void m33_set_f32(m33 m,
+                 f32 m00, f32 m01, f32 m02,
+                 f32 m10, f32 m11, f32 m12,
+                 f32 m20, f32 m21, f32 m22) {
+    m[0][0] = m00; m[0][1] = m01; m[0][2] = m02;
+    m[1][0] = m10; m[1][1] = m11; m[1][2] = m12;
+    m[2][0] = m20; m[2][1] = m21; m[2][2] = m22;
     return;
 }
-void m_matrix33_set_vec3f32(m_matrix33 matrix, m_vec3f32 a, m_vec3f32 b, m_vec3f32 c) {
-    matrix[0][0] = a.x; matrix[0][1] = a.y; matrix[0][2] = a.z;
-    matrix[1][0] = b.x; matrix[1][1] = b.y; matrix[1][2] = b.z;
-    matrix[2][0] = c.x; matrix[2][1] = c.y; matrix[2][2] = c.z;
+void m33_set_v3f32(m33 m, v3f32 a, v3f32 b, v3f32 c) {
+    m[0][0] = a.x; m[0][1] = a.y; m[0][2] = a.z;
+    m[1][0] = b.x; m[1][1] = b.y; m[1][2] = b.z;
+    m[2][0] = c.x; m[2][1] = c.y; m[2][2] = c.z;
     return;
 }
-void m_matrix33_print(m_matrix33 matrix) {
+void m33_print(m33 m) {
     printf("matrix: \n{%f, %f, %f,\n %f, %f, %f,\n %f, %f, %f}\n", 
-            matrix[0][0], matrix[0][1], matrix[0][2], 
-            matrix[1][0], matrix[1][1], matrix[1][2], 
-            matrix[2][0], matrix[2][1], matrix[2][2]);
+            m[0][0], m[0][1], m[0][2], 
+            m[1][0], m[1][1], m[1][2], 
+            m[2][0], m[2][1], m[2][2]);
     return;
+}
+v3f32 m33_v3f32(m33 m, i32 row){
+    v3f32 result = {0};
+    result.x = m[row][0];
+    result.y = m[row][1];
+    result.z = m[row][2];
+    return result;
+}
+void m33_add_m33(m33 A, m33 B) {
+    A[0][0] += B[0][0]; A[0][1] += B[0][1]; A[0][2] += B[0][2]; 
+    A[1][0] += B[1][0]; A[1][1] += B[1][1]; A[1][2] += B[1][2]; 
+    A[2][0] += B[2][0]; A[2][1] += B[2][1]; A[2][2] += B[2][2]; 
+}
+void m33_sub_m33(m33 A, m33 B) {
+    A[0][0] -= B[0][0]; A[0][1] -= B[0][1]; A[0][2] -= B[0][2]; 
+    A[1][0] -= B[1][0]; A[1][1] -= B[1][1]; A[1][2] -= B[1][2]; 
+    A[2][0] -= B[2][0]; A[2][1] -= B[2][1]; A[2][2] -= B[2][2]; 
 }
