@@ -61,6 +61,20 @@ int main() {
             mtx[0][0], mtx[0][1], mtx[0][2], 
             mtx[1][0], mtx[1][1], mtx[1][2], 
             mtx[2][0], mtx[2][1], mtx[2][2]);
+ 
+    /* pointer to an array */
+    f32 (*var)[3];      
+    /* 
+     * multi dimensional array
+     * or f32 *rows = (f32 *)malloc(3 * 3 * sizeof(f32)); 
+     */
+    f32 rows[3][3];     
+    /* point to the address of the array */
+    var = rows;         
+    /* printf("%f", var[3][3]); */
+
+    m_matrix33_set_vec3f32(mtx, pos, up, fd);
+    m_matrix33_print(mtx);
 
     printf("\n\n");
     return 0;

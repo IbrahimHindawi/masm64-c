@@ -1,3 +1,6 @@
+#ifndef                     __M_VEC_H__
+#define                     __M_VEC_H__
+
 #include "stdtype.h"
 
 typedef union {
@@ -24,3 +27,5 @@ m_vec3f32   m_vec3f32_div_scalar(m_vec3f32 v, f32 s);
 f32         m_vec3f32_dot(m_vec3f32 a, m_vec3f32 b);
 f32         m_vec3f32_length(m_vec3f32 v);
 m_vec3f32   m_vec3f32_normalize(m_vec3f32 v);
+
+#endif
